@@ -1,0 +1,43 @@
+\begin{tikzpicture}[scale=.6, transform shape, font=\huge, >=angle 45]
+	
+	% UNTERERREGT
+	\begin{scope}
+		\draw [very thick, ->] (0, 0) -- (0, 3);
+		\draw [very thick, ->] (0, 0) -- (110:2.75);
+		\draw [very thick, red, ->] (0, 0) -- (290:1.5);
+		\draw [thick, ->, >=stealth] (0, 2) arc (90:110:2);
+		\draw [very thick, blue, ->] (110:2.75) -- (0, 3);
+		\draw [->, >=stealth] (290:1) arc (-70:90:1);
+		
+		%BESCHRIFTUNGEN
+		\draw (0,-2) node {untererregt $\varphi > 0$}; 
+		
+		\draw (100:1.75) node {$\vartheta$};
+		\draw (0.4, 2.6) node {$\underline U_1$};
+		\draw (-0.85, 3.15) node {$\underline U_\text{Xd}$};
+		\draw (-1.2, 2.0) node {$\underline U_\text{iP}$};
+		\draw (0, -0.7) node {$\underline I_1$};
+		\draw (0:0.75) node{$\varphi$};
+	\end{scope}
+	
+	% ÜBERERREGT
+	\begin{scope}[shift={(5,0)}]
+		\draw [very thick, ->] (0, 0) -- (0, 3);
+		\draw [very thick, ->] (0, 0) -- (110:3.75);
+		\draw [very thick, red, ->] (0, 0) -- (225:1.5);
+		\draw [thick, ->, >=stealth] (0, 2) arc (90:110:2);
+		\draw [very thick, blue, ->] (110:3.75) -- (0, 3);
+		\draw [->, >=stealth] (225:1) arc (225:90:1);
+	
+		%BESCHRIFTUNGEN
+		\draw (0,-2) node {übererregt $\varphi < 0$};
+		
+		\draw (100:1.75) node {$\vartheta$};
+		\draw (0.45, 2.7) node {$\underline U_1$};
+		\draw (-0.5, 3.6) node {$\underline U_\text{Xd}$};
+		\draw (-1.4, 3) node {$\underline U_\text{iP}$};
+		\draw (0, -0.5) node {$\underline I_1$};
+		\draw (150:0.75) node{$\varphi$};
+	\end{scope}
+	
+\end{tikzpicture}

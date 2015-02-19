@@ -1,0 +1,41 @@
+%!tikz editor 1.0
+%!tikz source begin
+\begin{tikzpicture} [>=angle 45, font=\small]
+
+% Koordinatensystem
+\draw [->, thick] (2.5, 0) -- (-2, 0) node [left] {Im};
+\draw [->, thick] (0, -0.5) -- (0, 4) node [above] {Re};
+
+% Zeiger
+\coordinate (U1) at (0,2);
+\coordinate (Uip) at (2,3.5);
+\coordinate (I1) at (-9/8,1.5);
+\coordinate (I2) at (1,-0.57);
+\coordinate (recht) at ($(0,0)!(Uip)!(I1)$);
+
+\draw [black!50!white] (Uip) -- (recht);
+\draw [->, very thick, green!70!blue] (Uip) -- (U1);
+\draw [->, very thick, blue] (0, 0) -- (U1);
+\draw [->, very thick, blue] (0, 0) -- (Uip);
+\draw [->, very thick, red] (0, 0) -- (I1);
+\draw [->, very thick, red] (0,0) -- (I2);
+
+% Winkel
+\draw [->, thick, >=stealth] (0, 0.8) arc (90:60:0.8);
+\draw [<-, thick, >=stealth] (0, 0.8) arc (90:126:0.8);
+\draw [black!50!white] (recht) ++(36:0.25) arc (36:-54:0.25);
+\draw (recht) ++(-15:0.15) node [black!50!white] {.};
+\draw [black!50!white] (0,0) ++(60:0.25) arc (60:-30:0.25);
+\draw (0,0) ++(15:0.15) node [black!50!white] {.};
+
+% Beschriftung
+\draw (I1) ++(-0.1, -0.1) node [below] {$\underline I_1$};
+\draw (U1) ++(0, -0.3) node [right] {$\underline U_1$};
+\draw (U1) ++(1.6, 0) node {$\underline U_\text{iP}$};
+\draw (Uip) ++(-1.3,-0.4) node {$jX_d\cdot\underline I_1$};
+\node at (I2) [right] {$\underline I_2$};
+
+\draw (75:0.8) node [above] {$\vartheta$};
+\draw (110:0.8) node [above] {$\varphi$};
+\end{tikzpicture}
+%!tikz source end

@@ -1,0 +1,77 @@
+\section{Wechselfeld - Drehfeld}
+\sectionbox{
+\subsection{Größen}
+\tablebox{
+\begin{tabular*}{\columnwidth}{p{4,5cm}cc}
+\ctrule
+Stator & Index 1 & \\
+Rotor & Index 2 & \\
+Ordnungszahl der Oberwellen & $\nu$ & $\unitof{\si{1}}$\\
+\cmrule
+elektrische Frequenz & $f$ & $\unitof{\si{\hertz}}$\\
+elektrische Kreisfrequenz & $\omega$ & $\unitof{\si{\radian\per\second}}$\\
+\multicolumn{3}{c}{$\omega = 2\pi f$}\\
+mechanische Kreisfrequenz & $\omega_m$ & $\unitof{\si{\radian\per\second}}$\\
+Phasenwinkel & $\varphi$ & $\unitof{\si{\radian}}$\\
+Strangachsenwinkel & $\vartheta$ & $\unitof{\si{\radian}}$\\
+Strangspannung & $U_1$ & $\unitof{\si{\volt}}$\\
+Strangstrom & $I_1$ & $\unitof{\si{\ampere}}$\\
+komplexe Scheinleistung & $\underline{S}$ & $\unitof{\si{\voltampere}}$\\
+Wirkleistung & $P$ & $\unitof{\si{\watt}}$\\
+Blindleistung & $Q$ & $\unitof{\si{\var}}$\\
+Strangzahl & $m$ & $\unitof{\si{1}}$\\
+Windungszahl pro Strang & $w_1$ & $\unitof{\si{1}}$\\
+\cmrule
+Lochzahl (Nuten pro Pol und Strang) & $q$ & $\unitof{\si{1}}$\\
+Nutwinkel & $\alpha_N$ & $\unitof{\si{\radian}}$\\
+Spulenwinkel & $\alpha_\text{Sp}$ & $\unitof{\si{\radian}}$\\
+Polwinkel & $\alpha_p$ & $\unitof{\si{\radian}}$\\
+Spulenweite & $W_\text{Sp}$ & $\unitof{\si{\centi\meter}}$\\
+Zonungsfaktor & $\xi_Z$ & $\unitof{\si{1}}$\\
+Sehnungsfaktor & $\xi_S$ & $\unitof{\si{1}}$\\
+Nutschlitzbreitenfaktor & $\xi_N$ & $\unitof{\si{1}}$\\
+Schrägungsfaktor & $\xi_\text{Schr}$ & $\unitof{\si{1}}$\\
+\cbrule
+\end{tabular*}
+}
+}
+\sectionbox{
+\subsection{Stern \& Dreieckschaltung}
+\emphbox{
+\begin{tabularx}{\columnwidth}{>{\centering\arraybackslash}X |>{\centering\arraybackslash}X}
+\textbf{Sternschaltung} & \textbf{Dreiecksschaltung}\\
+$U_1 = \frac{U_N}{\sqrt{3}}$ & $U_1 = U_N$\\
+$I_1 = I_N$ & $I_1 = \frac{I_N}{\sqrt{3}}$\\
+\end{tabularx}
+}
+}
+\sectionbox{
+\subsection{Einfluss realer Luftspalt}
+\label{subsec:wickl}
+\symbolbox{Wicklungsfaktor: $\qquad\xi_{(\nu)} = \xi_{Z(\nu)}\cdot\xi_{S(\nu)}\cdot\xi_{N(\nu)}$}
+\[w_\text{eff} = w_\text{Sp}\cdot\xi_{(\nu)}\]
+\begin{tabularx}{\columnwidth}{cCc}
+$\alpha_N = \frac{2\pi}{N}$ & $\alpha_\text{Sp} = W_\text{Sp}(\text{absolut})\cdot\alpha_N$ & $\alpha_p = \frac{2\pi}{2p}$
+\end{tabularx}
+
+\subsubsection{Zonung}
+Erhöhung der Lochzahl $q$\\
+(Beschränkt durch $N_\text{max} = \frac{D\pi}{\tau_\text{N,min}}$) mit $\tau_\text{N,min} \approx \SI{1}{\centi\meter}$
+\begin{align*}
+w_\text{eff} &= q\cdot w_\text{Sp}\cdot\xi_{Z(\nu)}\\
+\xi_{Z(\nu)} &= \frac{\sin\left(q\cdot\nu\frac{\alpha_N}{2}p\right)}{q\cdot\sin\left(\nu\frac{\alpha_N}{2}p\right)} = \frac{\sin\left(\nu\frac{\pi}{2}\frac{q}{Q}\right)}{q\cdot\sin\left(\nu\frac{\pi}{2}\frac{1}{Q}\right)}
+\end{align*}
+
+\subsubsection{Sehnung}
+Kürzung der Spulenweite $W_\text{Sp}$ (nicht bei Einschichtwicklung möglich)\\
+\begin{align*}
+w_\text{eff} &= q\cdot w_\text{Sp}\cdot\xi_{S(\nu)}\\
+\xi_{S(\nu)} &= \sin\left(\nu\frac{\pi}{2}\frac{W_\text{Sp}}{\tau_p}\right) = \sin\left(\nu\frac{\alpha_\text{Sp}}{\alpha_p}\frac{\pi}{2}\right)
+\end{align*}
+
+\subsubsection{Nutschlitzbreite}
+\begin{align*}
+w_\text{eff} &= w_\text{Sp}\cdot\xi_{N(\nu)}\\
+\xi_{N(\nu)} &= \frac{\sin\left(\nu\frac{b_\text{N}}{D}\right)}{\nu\frac{b_\text{N}}{D}}
+\end{align*}
+}

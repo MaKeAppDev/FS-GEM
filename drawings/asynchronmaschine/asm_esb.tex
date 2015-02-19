@@ -1,0 +1,17 @@
+\begin{circuitikz}[scale=.75, transform shape, font=\large]
+\draw [american currents]
+	(0,2)
+	to [short, i=$\underline{I}_1$, o-](.5, 2)
+	to [R=\mbox{$R_\text{Fe}=\frac{3\cdot{U_1}^2}{P_\text{Fe}}$}, *-*] (.5,0)
+	(.5,2)
+	to [R=\mbox{$R_1(=0)$}](2,2) 
+	to [L=$j\omega_1L_{1\sigma}$](4,2)
+	to [L=$j\omega_1L_{1h}$, i=$\underline{I}_{1\mu}$, v>=$\underline{U}_{1i}$, *-*] (4,0)
+	(4,2)
+	to [L=$j\omega_1L_{2\sigma}'$](6,2)
+	to [R=$R_{2,\text{ges}}'$, i<=$\underline{I}_2'$](8,2)
+	to [R, l_=$R_{2,\text{ges}}'\cdot\frac{1-s}{s}$] (8,0) 
+	to [short, -o]	(0,0);
+\draw[->, >=latex] (0,1.8) -- (0,0.2) node [pos=0.5, left] {$\underline U_1$};
+\end{circuitikz}
+

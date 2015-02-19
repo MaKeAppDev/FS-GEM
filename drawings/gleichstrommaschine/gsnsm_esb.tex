@@ -1,0 +1,21 @@
+\begin{circuitikz}[scale=.75, transform shape, font=\large]
+\draw[american currents]
+	(0,2)
+	to [short, i=$I_A$, o-]	(0.5,2) 
+	to [R=$R_A$]		(2,2)
+	to [L=$L_A$]			(4,2)
+	to [I_=$U_i$]		(4,0)
+	to [I=$U_B$] (2,0)
+	to [short, -o]		(0,0);
+\draw[->, >=latex] (0,1.8) -- (0,0.2) node [pos=0.5, left] {$U_A$};
+\draw
+	(6,0.5) 
+	to [short, o-]		(6,1)
+	to [R=$R_E$]			(8,1)
+	to [short, i=$I_E$, -o]		(8,0.5);
+\draw[->, >=latex] (6.2,0.5) -- (7.8,0.5) node [pos=0.5, below] {$U_E$};
+\draw[->, >=latex]
+	(4.8,1) -- (5.5,1);
+\draw	
+	(5.1,1.25) node {$\Phi_E$};
+\end{circuitikz}

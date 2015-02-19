@@ -1,0 +1,82 @@
+\section{Gleichstrommaschine}
+\sectionbox{
+\subsection{Größen}
+\tablebox{
+\begin{tabular*}{\columnwidth}{p{4,5cm}cc}
+\ctrule
+Maschinenkonstante (Spannung) & $k_U$ & $\unitof{\si{1}}$\\
+Maschinenkonstante (Drehmoment) & $k_M$ & $\unitof{\si{1}}$\\
+Flusskonstante & $k_\Phi$ & $\unitof{\si{\voltsecond\per\ampere}}$\\
+Erregerstromkonstante & $k_E$ & $\unitof{\si{1}}$\\
+Ankerwindungszahl & $w_2$ & $\unitof{\si{1}}$\\
+Bürstenübergangsspannung & $U_B$ & $\unitof{\si{\volt}}$\\
+Kommutatorsegmentspannung & $U_S$ & $\unitof{\si{\volt}}$\\
+\cbrule
+\end{tabular*}
+}
+\subsection{Systemgleichungen}
+\begin{align*}
+U_A &= R_{A,\text{res}}\cdot I_A + U_i + 2\cdot U_B & w_2 = \frac{N_2 \cdot Z_\text{N}}{2a}\\
+\Phi_E &= k_\Phi\cdot I_E & k_U = 4p\cdot w_2\\
+U_i &= k_U\cdot\Phi_E\cdot n & k_M = \frac{k_U}{2\pi}\\
+M_i &= k_M\cdot\Phi_E\cdot I_A\\
+M_i &= M_R + M_L + J\frac{\diff\omega}{\diff t}
+\end{align*}
+
+\subsection{Verhalten}
+\begin{center}
+\input{drawings/gleichstrommaschine/flussverlauf_phi}
+\end{center}
+}
+\sectionbox{
+\subsection{Gleichstrom-Nebenschlussmaschine}
+\subsubsection{ESB}
+\begin{center}
+\input{drawings/gleichstrommaschine/gsnsm_esb}
+\end{center}
+
+\subsubsection{Drehmoment-Drehzahl-Kennlinie}
+\emphbox{
+\[n = \frac{U_A - 2\cdot U_B}{k_U\cdot\Phi_E} - \frac{2\pi\cdot R_{A,\text{res}}}{(k_U\cdot\Phi_E)^2}\cdot M_i\]
+}
+
+\subsubsection{Wichtige Betriebspunkte}
+\begin{align*}
+&\text{Anlaufmoment: } (n = 0) & M_{i,\text{An}} &= k_M\cdot\Phi_E\cdot I_{A,\text{An}}\\
+&\text{Leerlaufdrehzahl: } (M_i = 0) & n_0 &= \frac{U_A - 2\cdot U_B}{k_U\cdot\Phi_E}\\
+&\text{Anlaufstrom: } (n = 0) & I_{A,\text{An}}& = \frac{U_A - 2\cdot U_B}{R_{A,\text{res}}}\\
+&n = n_0\cdot\left(1 - \frac{M_i}{M_{i,\text{An}}}\right) & M_i &= M_{i,\text{An}}\cdot\left(1 - \frac{n}{n_0}\right)
+\end{align*}
+}
+\sectionbox{
+\subsection{Gleichstrom-Reihenschlussmaschine}
+\subsubsection{ESB}
+\begin{center}
+\input{drawings/gleichstrommaschine/gsrsm_esb}
+\end{center}
+\begin{align*}
+R_{A,\text{res}} &= R_V + R_A + R_E || R_P
+\end{align*}
+
+\subsubsection{Systemgleichungen}
+\begin{align*}
+I_E &= k_E\cdot I_A \quad\text{mit } k_E =
+\begin{cases}
+1 & \text{für } R_P \rightarrow\infty\\
+0 & \text{für } R_P =0\\
+\dfrac{R_p}{R_p + R_E} & \text{sonst}
+\end{cases}\\
+\Phi_E &= k_\Phi\cdot I_E = k_\Phi\, k_E\cdot I_A\\
+M_i & = k_M \cdot \Phi_E \cdot I_A = k_M \, k_\Phi \, k_E \cdot {I_A}^2\\
+U_i & = k_U \cdot \Phi_E \cdot n = k_U \, k_\Phi \, k_E \cdot I_A \cdot n\\
+\end{align*}
+}
+\sectionbox{
+\subsubsection{Drehmoment-Drehzahl-Kennlinie}
+\emphbox{
+\[M_i = k_M\, k_\Phi\, k_E\cdot\frac{(U_A - 2\cdot U_B)^2}{(k_U\, k_\Phi\, k_E\cdot n + {R_{A,\text{res}}}^2)^2} \]
+}
+\begin{align*}
+\text{Anlaufmoment: }(n=0)\qquad M_{i,\text{An}} = k_M\, k_\Phi\, k_E\cdot\left(\frac{U_A}{R_{A,\text{res}}}\right)^2
+\end{align*}
+}

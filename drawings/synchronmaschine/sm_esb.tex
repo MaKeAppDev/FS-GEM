@@ -1,0 +1,11 @@
+\begin{circuitikz}[scale=.9, transform shape]
+\draw [american currents]
+	(0,2)
+	to [short, i=$\underline{I}_1$, o-](1, 2) 
+	to [R=\mbox{$R_1(= 0)$}](3,2)
+	to [L=$jX_d$](5,2)
+	to [I=$\underline{U}_\text{iP}$] (5,0)
+	to [short, -o]		(0,0);
+\draw[->, >=latex] (0,1.8) -- (0,0.2) node [pos=0.5, left] {$\underline U_1$};
+\end{circuitikz}
+

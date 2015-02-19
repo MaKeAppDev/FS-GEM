@@ -1,0 +1,57 @@
+%!tikz editor 1.0
+%!tikz source begin
+\begin{tikzpicture} [>=angle 45, font=\small]
+
+% Koordinatensystem
+\draw [->, thick] (-0.5, 0) -- (2, 0) node [right] {$-$Im};
+\draw [->, thick] (0, -0.5) -- (0, 4) node [above] {Re};
+
+% Koordinaten
+\coordinate (U1) at (0,3.7);
+\coordinate (I1) at (57:2.5);
+\coordinate (Ui1) at (82:2.9);
+\coordinate (I1u) at (-8:0.7);
+
+\coordinate (P1) at ($(0,0)!(U1)!(I1)$);
+\coordinate (P2) at ($(I1u)!(Ui1)!(I1)$);
+\coordinate (P3) at ($(P2)!(0,0)!(I1)$);
+\coordinate (P4) at ($(U1)!(Ui1)!(P1)$);
+\coordinate (P5) at ($(Ui1)!(0,0)!(P2)$);
+
+\draw [black!50!white] (0,0) -- (P1);
+\draw [black!50!white] (P1) -- (U1);
+\draw [black!50!white] (Ui1) -- (P2);
+\draw [black!50!white] (I1) -- (P2);
+
+\draw [->, very thick, blue] (0, 0) -- (U1);
+\draw [->, very thick, red] (0, 0) -- (I1);
+\draw [->, very thick, blue] (0, 0) -- (Ui1);
+\draw [->, very thick, red] (0, 0) -- (I1u);
+\draw [->, very thick, red] (I1) -- (I1u);
+
+\draw [->, thick, green!70!blue] (Ui1) -- (P4);
+\draw [->, thick, green!70!blue] (P4) -- (U1);
+\draw [->, thick, green!70!blue] (Ui1) -- (P5);
+\draw [->, very thick, green] (P5) -- (0, 0);
+\draw [->, very thick, green!70!blue] (P5) -- ($(P5)!0.2!(0,0)$);
+
+% Beschriftungspfeile
+\draw [->, >=stealth] (-0.25, 2.4) -- ($(0,0)!0.8!(Ui1)$);
+\draw [->, >=stealth] (-0.25, 3.2) -- ($(P4)!0.5!(Ui1)$);
+\draw [->, >=stealth] (1.6, 3.2) -- ($(Ui1)!0.2!(P5)$);
+\draw [->, >=stealth] (1.9, 2.75) -- ($(P5)!0.1!(0,0)$);
+\draw [->, >=stealth] (1.9, 1.45) -- ($(P5)!0.5!(0,0)$);
+
+% Beschriftung
+\node [left] at (0, 1.5) {$\underline U_1$};
+\node [right=2] at (I1) {$\underline I_1$};
+\draw (I1u) +(-0.2,0) node [below] {$\underline I_{1\mu}$};
+\draw (I1u) +(0.2,0.5) node [right] {$\underline I_{2}'$};
+\node [left] at (-0.25, 2.4) {$\underline U_{1i}$};
+\draw ($(P4)!0.5!(U1)$) +(0,0.2) node [right] {$j\omega_1 L_{1\sigma} \cdot\underline I_1$};
+\draw (-0.25, 3.2) node [left] {$R_1\cdot \underline I_1$};
+\draw (1.6, 3.2) node [right] {$j\omega_1 L_{2\sigma}' \cdot \underline I_2'$};
+\draw (1.9, 2.75) node [right] {$R_{2\text{ges}}'\cdot\underline I_2'$};
+\draw (1.9, 1.45) node [right] {$R_{2\text{ges}}'\cdot \frac{1-s}{s}\cdot\underline I_2'$};
+\end{tikzpicture}
+%!tikz source end

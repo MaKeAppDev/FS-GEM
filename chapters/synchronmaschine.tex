@@ -1,0 +1,192 @@
+\section{Synchronmaschine}
+\sectionbox{
+\subsection{Größen}
+\tablebox{
+\begin{tabular*}{\columnwidth}{p{4,5cm}cc}
+\ctrule
+Erregerstrom & $I_2$ & $\unitof{\si{\ampere}}$\\
+induzierte Polradspannung & $\underline{U}_\text{iP}$ & $\unitof{\si{\volt}}$\\
+synchrone Reaktanz & $X_d$ & $\unitof{\si{\ohm}}$\\
+Selbstinduktivität & $L$ & $\unitof{\si{\henry}}$\\
+Koppelinduktivität (von Rotor nach Stator) & $M_{21}$ & $\unitof{\si{\henry}}$\\
+Polradwinkel & $\vartheta$ & $\unitof{\si{\radian}}$\\
+Phasenwinkel von $\underline{Z}_1$ & $\varphi_{Z1}$ & $\unitof{\si{\radian}}$\\
+\cmrule
+Netzleistung (Wirkleistung) & $P_1$ & $\unitof{\si{\watt}}$\\
+innere elektrische Leistung & $P_W$ & $\unitof{\si{\watt}}$\\
+Drehfeldleistung & $P_\delta$ & $\unitof{\si{\watt}}$\\
+mechanische Leistung & $P_m$ & $\unitof{\si{\watt}}$\\
+Erregerleistung & $P_E$ & $\unitof{\si{\watt}}$\\
+\cmrule
+Leerlaufkurzschlussstrom & $\underline{I}_{K0}$ & $\unitof{\si{\ampere}}$\\
+Dreisträngiger Dauerkurzschlussstrom & $\underline I_{K\textrm{III}}$ & $\unitof{\si{\ampere}}$\\
+Leerlaufkurzschlussverhältnis (LKV) & $\frac{\underline{I}_{K0}}{\underline{I}_N}$ & $\unitof{\si{1}}$\\
+\cbrule
+\end{tabular*}
+}
+}
+\sectionbox{
+\subsection{ESB}
+\begin{center}
+\input{drawings/synchronmaschine/sm_esb}
+\end{center}
+\begin{align*}
+\underline{U}_1 &= \underline{Z}_1\cdot\underline{I}_1 + \underline{U}_\text{iP}\\
+\underline{Z}_1 &= R_1 + jX_d\\
+X_d &= X_{1h} + X_{1\sigma} = 2\pi f\cdot (L_{1h} + L_{1\sigma})\\
+\abs{\underline{U}_\text{iP}} &= U_\text{iP} = \omega M_{21}\sqrt{2}\cdot I_2\\
+\sigma &= \frac{L_{1\sigma}}{L_{1h}}
+\end{align*}
+
+\subsection{Systemgleichungen}
+\begin{align*}
+\vec{u}_1 &= R_1\cdot\vec{i}_1(t) + \frac{\partial\vec{\Psi}_1(t)}{\partial t}\\
+\vec{\Psi}_1 &= L_1\cdot\vec{i}_1(t) + M_{21}\cdot\vec{i}_2'(t)\\
+u_2 &= R_2\cdot i_2(t) + \frac{\partial\Psi_2(t)}{\partial t}\\
+\Psi_2 &= L_2\cdot i_2(t) + 3\cdot M_{21}\cdot(\vec{i}_1(t)e^{-jp\vartheta_m} + \vec{i}_1^*(t)e^{jp\vartheta_m})\\
+\end{align*}
+}
+\sectionbox{
+\subsection{Wichtige Gleichungen}
+\subsubsection{Synchrone Drehzahl Luftspaltfeld}
+\emphbox{$n_\text{syn} = n_N = \frac{f_1}{p}$}
+
+\subsubsection{Drehmoment}
+\emphbox{$M_K\sim \frac{U_1}{f_1}$}
+\emphbox{\[M_i = -\frac{3p}{\omega_1}\cdot\left[\frac{U_1\cdot U_\text{iP}}{Z_1}\cdot\sin{\left(\vartheta - \varphi_{Z1}\right)} + \frac{{U_\text{iP}}^2}{Z_1}\cdot\sin{\left(\varphi_{Z1}\right)}\right]\]}
+Kippmoment:
+\[M_K = \frac{3p}{\omega_1}\cdot\frac{U_1\cdot U_\text{iP}}{Z_1} = \frac{3p}{\omega_1}\cdot U_1\cdot I_{K\textrm{III}}\]
+$R_1 = 0 \Rightarrow \varphi_{Z1} = 0 \Rightarrow M_i = -M_K\cdot\sin(\vartheta)$
+
+\subsubsection{Leistung}
+\begin{align*}
+\underline{S}_1 &= 3\cdot \underline{U}_1\cdot\underline{I}_1^*\\
+P_1 &= S_1 \cdot\cos{(\varphi)} = 3\cdot U_1\cdot I_1\cdot\cos{(\varphi)}\\
+P_W &= 3\cdot U_\text{iP}\cdot I_1\cdot\cos{(\varphi)}\\
+P_\delta &= \omega_m\cdot M_i = P_W - 3\cdot R_1\cdot {I_1}^2\\
+P_m &= 2\pi\cdot n\cdot (M_i - M_R) = \omega_m\cdot (M_i - M_R) = P_\delta - P_R\\
+P_E &= U_2\cdot I_2\\
+\eta &= \frac{P_m}{P_1 + P_{\text{v}E}}
+\end{align*}
+}
+\sectionbox{
+\subsection{Betriebsbereiche}
+Bei Leerlauferregung ($I_2 = I_{20}$): $\Rightarrow U_1 = U_\text{iP}$\\
+Bei linearer Leerlaufkennlinie ($X_d = \const$): $I_2 = I_{20}\cdot\frac{U_\text{iP}}{U_1}$
+
+\subsubsection{Leerlauf $(I_1 = 0)$}
+\begin{align*}
+I_{20} = \frac{U_\text{iP}}{\omega M_{21} \sqrt{2}} = \frac{U_1}{\omega M_{21} \sqrt{2}}
+\end{align*}
+
+\subsubsection{Kurzschluss $(U_1 = 0)$}
+\begin{align*}
+\underline I_{K\textrm{III}} &= \frac{\underline{U}_\text{iP}}{\underline{Z}_1}\\
+\underline{I}_{K0} &= \underline I_{K\textrm{III}}(I_{20}) = \frac{\underline{U}_1}{\underline{Z}_1}
+\end{align*}
+
+\subsubsection{Betriebsarten}
+\symbolbox{
+$\vartheta$ zwischen dem Zeiger von $\underline{U}_1$ nach $\underline{U}_\text{iP}$\\
+$\varphi$ zwischen dem Zeiger von $\underline{I}_1$ nach $\underline{U}_1$\\
+$\underline I_2$ eilt $\underline U_\text{iP}$ um $\ang{90}$ nach
+}
+
+\textbf{Phasenschieberbetrieb:} $\vartheta = 0$ ($R_1 = 0$ VZS - Betrieb am starren Netz)
+\begin{itemize}
+\item Betrieb im Leerlauf
+\item reine Blindleistungsabgabe bzw. -aufnahme
+\item $\cos(\varphi) = 0\Rightarrow$
+\begin{itemize}
+\item untererregt: $\Rightarrow\varphi = \SI{90}{\degree}$
+\item übererregt: $\Rightarrow\varphi = \SI{-90}{\degree}$
+\end{itemize}
+\end{itemize}
+
+\textbf{Motorbetrieb:} $\vartheta < 0$ ($R_1 = 0$ VZS - Betrieb am starren Netz)
+\begin{center}
+\input{drawings/synchronmaschine/zeiger_syn_motorbetrieb}
+\end{center}
+
+\textbf{Generatorbetrieb:} $\vartheta > 0$ ($R_1 = 0$ VZS - Betrieb am starren Netz)
+\begin{center}
+\input{drawings/synchronmaschine/zeiger_syn_generatorbetrieb}
+\end{center}
+
+}
+\sectionbox{
+\subsection{Zeigerdiagramm}
+\begin{center}
+\input{drawings/synchronmaschine/zeiger_syn}
+\end{center}
+}
+\sectionbox{
+\subsection{Stromortskurve}
+\begin{align*}
+\underline{I}_1 &= \underline{I}_{K0} - \underline I_{K\textrm{III}}\\
+\underline I_{K\textrm{III}} &= \frac{U_\text{iP}}{U_1}\cdot \underline{I}_{K0}\cdot e^{j\vartheta}\\
+\underline{I}_{K0} &= -\frac{U_1}{Z_1}\cdot j\, e^{j\varphi_{Z1}}
+\end{align*}
+\cookbox{Stromortskurve}{
+\item $\underline{U}_1$ auf reelle Achse legen
+\item Richtung von $\underline{U}_\text{iP}$ einzeichnen
+\item $\underline{I}_{K0}$ einzeichnen\\
+bei $R_1 = 0:\ \underline{I}_{K0}$ eilt $\underline{U}_1$ um $\ang{90}$ nach
+\item konstante Erregung: Kreis um Spitze von $\underline{I}_{K0}$ mit Radius $I_{K\textrm{III}}$
+\item Richtungen von $\underline{I}_{K\textrm{III}}$ und $\underline{I}_1$ festgelegt durch $\varphi$ bzw. $\vartheta$
+\item bei $R_1 = 0$: Verlängerung von $\underline{U}_\text{iP} \perp \underline{I}_{K\textrm{III}}$
+}
+\begin{center}
+\input{drawings/synchronmaschine/zeiger_syn_stromortskurve}
+\end{center}
+}
+\sectionbox{
+\subsection{dq-Darstellung}
+\cookbox{Zeigerdiagramm}{
+\item $\underline{U}_1$ auf reelle Achse legen
+\item $\underline{I}_1$ einzeichnen
+\item Richtung von $U_\text{iP}$ legt $d$ und $q$ Achse fest\\
+($\vartheta =$ unbekannt $\Rightarrow$ weiter bei Trick)
+\item Zerlegung von $\underline{I}_1$ in $\underline{I}_d$ und $\underline{I}_q$
+\item Spannungsabfall an $X_d = \abs{X_d\cdot I_d}$
+\item Spannungsabfall an $X_q = \abs{X_q\cdot I_q}$
+\item $\underline{U}_\text{iP} = \underline{U}_1 - jX_d\cdot\underline{I}_d - jX_q\cdot\underline{I}_q$
+}
+\cookbox{Trick}{
+\item $\vartheta = \arg(\underline{U}_1 - jX_q\cdot\underline{I}_1) \Rightarrow$ Richtungsgerade von $U_\text{iP} (||jX_d \underline I_d)$
+\item $\underline{U}_\text{iP} =$ Senkrechte von $\underline{U}_1 - jX_d\cdot\underline{I}_d$ auf Richtungsgerade
+}
+\subsubsection{Systemgleichungen}
+\begin{align*}
+U_d &= R_1\cdot I_d - \omega_1 L_q\cdot I_q\\
+U_q &= R_1\cdot I_q + \omega_1 L_d\cdot I_d + \sqrt{2}\cdot U_\text{iP}\\
+U_\text{iP} &= \sqrt{2}\cdot \omega_1 M_{21}\cdot I_2\\
+U_2 &= R_2\cdot I_2\\
+M_i &= 3\cdot p\cdot M_{21}\cdot I_2\cdot I_q
+\end{align*}
+
+\subsubsection{Zeigerdiagramm}
+\begin{center}
+\input{drawings/synchronmaschine/zeiger_syn_dq}
+\end{center}
+}
+\sectionbox{
+\subsection{Schenkelpolläufer}
+\subsubsection{Drehmoment ($R_1 = 0$)}
+\emphbox{
+\[M_i' = -\frac{m_1\cdot p}{\omega_1} U_1\left[\frac{U_\text{iP}}{X_d}\sin(\vartheta) + \frac{U_1}{2}\left(\frac{1}{X_q} - \frac{1}{X_d}\right)\sin(2\vartheta)\right]\]
+}
+\textbf{Reluktanzmoment (Reaktionsmoment):}
+\begin{align*}
+M_r = -\frac{m_1\cdot p}{\omega_1}\cdot\frac{{U_1}^2}{2}\left(\frac{1}{X_q} - \frac{1}{X_d}\right)\sin(2\vartheta)
+\end{align*}
+Vollpolläufer entwickeln kein Reluktanzmoment wegen $L_d = L_q$.\\
+Maximales Reluktanzmoment bei $\abs{\vartheta} = \SI{45}{\degree}$.
+
+\subsubsection{Systemgleichungen}
+\begin{align*}
+\underline{U}_1 &= \underline{U}_d + \underline{U}_q + \underline{U}_\text{iP}\\
+&= jX_d\cdot\underline{I}_d + jX_q\cdot\underline{I}_q + \underline{U}_\text{iP}\\
+\underline{I}_1 &= \underline{I}_d + \underline{I}_q
+\end{align*}
+}

@@ -1,0 +1,52 @@
+%!tikz editor 1.0
+%!tikz source begin
+\begin{tikzpicture}[>=angle 60, font=\small]
+
+% Koordinatensystem
+\draw [->, thick] (-.4, 0) -- (6, 0) node [above] {$-$Im};
+\draw [->, thick] (0, -2) -- (0, 2.5) node [right] {Re};
+
+% Kreis
+\coordinate (M) at (3, 0);
+\draw [thick] (M) circle (2);
+
+% Vektoren
+\coordinate (U1) at (0, 1.75);
+\coordinate (Iki1) at ($(M)+(2,0)$);
+\coordinate (I01) at ($(M)+(-2,0)$);
+\coordinate (Ia1) at ($(M)+(30:2)$);
+\coordinate (In1) at ($(M)+(135:2)$);
+
+\draw [thick, black!30!white] (I01) -- ($(I01)!1.25!(Ia1)$);
+\draw [->, very thick, red] (0, 0) -- (Iki1);
+\draw [->, very thick, red] (0, 0) -- (Ia1);
+\draw [->, very thick, red] (0, 0) -- (In1);
+\draw [->, very thick, red] (0, 0) -- (I01);
+\draw [->, very thick, blue] (0, 0) -- (U1);
+\draw [->, thick, red] (In1) -- (I01);
+
+% Winkel
+\draw [->, >=stealth] (I01)+(1,0) arc (0:15:1);
+\coordinate (phi) at ($(0,0)!0.5!(In1)$);
+\draw [->, >=stealth] (phi) let \p1 = (phi) in arc (45:92:({veclen(\x1,\y1)}););
+%\draw [->, >=stealth] (0,0)+(0.5,0.5) arc (45:90:0.707);
+
+% Beschriftung
+\node at (M) [above] {$M$};
+\node at (M) {$\times$};
+\node at (U1) [left] {$\underline U_1$};
+\draw (In1) +(-0.55, -0.15) node {$\underline I_{1N}$}
+			+(-0.1, 0.25) node {$P_N$};
+\draw (Ia1) +(-0.2, -0.35) node {$\underline I_{1A}$}
+			+(0.2, 0.2) node {$P_A$};
+\draw (Iki1)+(0, -0.25) node [left] {$\underline I_{1Ki}$}
+			+(0, -0.25) node [right] {$P_\infty$};
+\draw (I01)+(0, -0.25) node [left] {$\underline I_{10}$}
+			+(0, -0.25) node [right] {$P_0$};
+\draw (In1) +(0.05, -0.7) [font=\scriptsize] node {$\frac{\underline I_{2N}'}{1+\sigma_1}$}
+			+(-0.1, 0.25) node {$P_N$};
+\draw (I01)+(0.6,0.1) [right, font=\scriptsize] node {$\mu$};
+\draw (phi)+(-0.15,0) [left, font=\scriptsize] node {$\varphi_{1N}$};
+			
+\end{tikzpicture}
+%!tikz source end

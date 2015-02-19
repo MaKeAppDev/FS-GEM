@@ -1,0 +1,214 @@
+\section{Asynchronmaschine}
+\sectionbox{
+\subsection{Größen}
+\tablebox{
+\begin{tabular*}{\columnwidth}{p{4,5cm}cc}
+\ctrule
+Übersetzungsverhältnis & $\ddot{u}$ & $\unitof{\si{1}}$\\
+Schlupf & $s$ & $\unitof{\si{1}}$\\
+Kippschlupf & $s_K$ & $\unitof{\si{1}}$\\
+Kippmoment & $M_K$ & $\unitof{\si{\newtonmeter}}$\\
+\cmrule
+Bezogener Statorwiderstand & $\rho_1$ & $\unitof{\si{1}}$\\
+Bezogener Rotorwiderstand & $\rho_2$ & $\unitof{\si{1}}$\\
+Hilfsgröße & $\Delta\rho_1$ & $\unitof{\si{1}}$\\
+\cmrule
+Rotor-Statorwärmeverluste & $P_\text{Cu}$ & $\unitof{\si{\watt}}$\\
+Magnetisierungsstrom & $\underline{I}_{1\mu}$ & $\unitof{\si{\ampere}}$\\
+Rotor-Vorwiderstand & $R_{2V}$ & $\unitof{\si{\ohm}}$\\
+\cbrule
+\end{tabular*}
+}
+}
+\sectionbox{
+\subsection{ESB}
+\begin{center}
+\input{drawings/asynchronmaschine/asm_esb}
+\end{center}
+
+\subsubsection{Übersetzungsverhältnis}
+Bei Schleifring-ASM gilt: $\quad M_{21} = M_{12} = M$
+
+\symbolbox{
+\begin{center}
+$\ddot{u} = \dfrac{L_{1h}}{M} = \sqrt{\frac{m_1}{m_2}}\cdot\frac{w_1\xi_1}{w_2\xi_2}\cdot\frac{1}{\xi_\text{Schr}} = \sqrt{\frac{m_1}{m_2}}\cdot\frac{w_{1,\text{eff}}}{w_{2,\text{eff}}}\cdot\frac{1}{\xi_\text{Schr}}$
+\end{center}
+}
+\begin{tabularx}{\columnwidth}{>{\centering\arraybackslash}X>{\centering\arraybackslash}X}
+$R_{2,\text{ges}}' = \ddot{u}^2\cdot R_{2,\text{ges}}$ & $R_{2,\text{ges}}' = R_2' + R_{2V}'$\\
+$\underline U_2 = \frac{1}{\ddot{u}}\cdot\underline U_{1i}$ &  $L_{2\sigma}' = \ddot{u}^2\cdot (L_{2\sigma} + L_{2\text{Schr}})$\\
+$\underline{I}_2' = \frac{1}{\ddot{u}}\cdot\underline{I}_2$ &
+\end{tabularx}
+
+\subsection{Systemgleichungen}
+\begin{align*}
+\vec{u}_1 &= R_1\cdot\vec{i}_1 + \frac{\partial\vec\Psi_1}{\partial t}, & \vec\Psi_1 &= L_1\cdot\vec i_1 + M\cdot\vec i_2\cdot e^{jp\vartheta_m}\\
+0 &= R_{2,\text{ges}}\cdot\vec{i}_2 + \frac{\partial\vec\Psi_2}{\partial t}, & \vec\Psi_2 &= L_2\cdot\vec i_2 + M\cdot\vec i_1\cdot e^{-jp\vartheta_m}\\
+J\frac{\diff\omega}{\diff t} &= M_i - M_R - M_L
+\end{align*}
+}
+\sectionbox{
+\subsection{Wichtige Größen}
+\subsubsection{Schlupf}
+\emphbox{$s = \frac{n_\text{syn} - n}{n_\text{syn}} = \frac{\omega_\text{syn} - \omega_m}{\omega_\text{syn}} = \frac{\omega_1 - p\cdot\omega_m}{\omega_1} = \frac{\omega_2}{\omega_1}$}
+\begin{tabularx}{\columnwidth}{>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X}
+Gegenstrombremse & Motor & Generator\\
+$s > 1$ & $1 > s > 0$ & $s < 0$
+\end{tabularx}
+
+\subsubsection{Drehzahl}
+\begin{tabularx}{\columnwidth}{>{\centering\arraybackslash}X>{\centering\arraybackslash}X}
+synchrone Drehzahl & Nenndrehzahl\\
+$n_\text{syn} = \frac{f}{p}$ & $n_N = n_s (1-s_N)$
+\end{tabularx}
+
+\subsubsection{Leistung}
+\begin{align*}
+\underline{S}_1 &= m_1\cdot \underline{U}_1\cdot\underline{I}_1^*\\
+P_1 &= S_1 \cdot\cos{(\varphi)} = m_1\cdot U_1\cdot I_1\cdot\cos{(\varphi)}\\
+P_\text{Netz} &= m_1\cdot U_1\cdot I_1\cdot\cos{(\varphi_N)} = P_1 + P_\text{Fe}\\
+P_\delta &= 2\pi\cdot n_\text{syn}\cdot M_i = P_1 - P_{\text{Cu}1} - P_\text{Fe}\\
+P_{mi} &= (1-s)P_\delta = P_\delta - P_{\text{Cu}2} - P_{2V} = \omega_m\cdot M_i\\
+P_m &= 2\pi\cdot n\cdot (M_i - M_R) = \omega_m\cdot (M_i - M_R) = P_{mi} - P_R\\
+P_{\text{Cu}2} &= s\cdot P_\delta = m_2\cdot R_2\cdot {I_2}^2\\
+\end{align*}
+
+\subsubsection{Phase}
+\emphbox{ASM immer induktiv $\Rightarrow \varphi > 0$}
+\begin{align*}
+\varphi &= \varphi_{1Z}-\varphi_{1N}\\
+\varphi &= \begin{cases}
+\arctan(\frac{b}{a}) & \text{für } a > 0\\
+\arctan(\frac{b}{a})+\pi & \text{für } a < 0, b\geq 0\\
+\arctan(\frac{b}{a})-\pi & \text{für } a < 0, b<0
+\end{cases}
+\end{align*}
+}
+\sectionbox{
+\subsubsection{Weitere Parameter}
+\begin{tabularx}{\columnwidth}{>{\centering\arraybackslash}X>{\centering\arraybackslash}X}
+$L_{1\sigma} = \sigma_1\cdot L_{1h}$ & $L_1 = L_{1h} + L_{1\sigma}$\\
+$L_{2\sigma}' = \sigma_2\cdot L_{1h}$ & $L_2' = L_{1h}\cdot (1+\sigma_2)$\\
+\multicolumn{2}{c}{$L_\sigma = \sigma\cdot L_1 = L_{1\sigma} + \frac{\xi_\text{Schr}}{1 + \sigma_2}L_{2\sigma}'$}\\
+$\rho_1 = \frac{R_1}{\omega_1 L_1}$ & $\rho_2 = \frac{R_{2,\text{ges}}}{\omega_1 L_2} = \frac{R_{2,\text{ges}}'}{\omega_1 L_2'}$\\
+\multicolumn{2}{c}{$\Delta \rho_1 = \sqrt{1+\left( \frac{\rho_1}{\sigma}\right)^2}\cdot\sqrt{1+{\rho_1}^2}$}\\
+\multicolumn{2}{c}{$\sigma = 1 - \frac{1}{(1 + \sigma_1)\cdot(1 + \sigma_2)} = 1 - \frac{M^2}{L_1 L_2}$}
+\end{tabularx}
+}
+\sectionbox{
+\subsection{Statorstrom}
+\emphbox{\[\underline{I}_1 = \frac{\underline{U}_1}{\omega_1 L_1} \cdot \frac{\rho_2 +js}{\rho_1\cdot\rho_2 -\sigma\cdot s+j(\rho_2 +s\cdot \rho_1)}\]
+}
+Anlaufstrom:\\
+$I_{1A} = |\underline{I}_1|(s=1) = \frac{U_1}{\omega_1 L_\sigma}\sqrt{\frac{1+{\rho_2}^2}{\left(1-\frac{\rho_1\cdot\rho_2}{\sigma}\right)^2 +\left(\frac{\rho_1+\rho_2}{\sigma}\right)^2}}$\\
+Ideeller Kurzschlussstrom:\\
+$I_{1Ki} = |\underline{I}_1|(s\rightarrow\pm\infty) = \frac{U_1}{\omega_1 L_\sigma}\cdot \frac{1}{\sqrt{1+\left( \frac{\rho_1}{\sigma}\right)^2}}$\\
+Leerlaufstrom:\\$I_{10} = |\underline{I}_1|(s=0) = \frac{U_1}{\omega_1 L_1}\cdot \frac{1}{\sqrt{1+{\rho_1}^2}}$
+
+\subsubsection{Magnetisierungsstrom}
+\[\underline I_\mu = \frac{\rho_2 + j\cdot s\cdot(\sigma - \sigma_1\cdot(1-\sigma))}{\rho_1\cdot\rho_2 - \sigma\cdot s + j\cdot(\rho_2 + s\cdot\rho_1)}\cdot\frac{\underline U_1}{\omega_1 L_1}\]
+}
+\sectionbox{
+\subsection{Zeigerdiagramm}
+\cookbox{Zeigerdiagramm}{
+\item $\underline{U}_1$ auf reelle Achse legen und $\underline{I}_1$ einzeichnen
+\item $R_1\underline{I}_1$ (gleiche Phasenlage wie $\underline{I}_1$)\\
+$j\omega_1 L_{1\sigma}\underline{I}_1$ (eilt $\underline{I}_1$ um $\ang{90}$ voraus)
+\item $\underline{U}_{1i} = \underline{U}_1 - R_1\underline{I}_1 - j\omega_1 L_{1\sigma}\underline{I}_1$
+\item $\underline{I}_{1\mu} = \frac{\underline{U}_{1i}}{j\omega_1 L_{1h}}$ (eilt $\underline{U}_{1i}$ um $\ang{90}$ nach)
+\item $\underline{I}_2' = \underline{I}_{1\mu} - \underline{I}_1$
+\item $R_{2,\text{ges}}'\underline{I}_2'$ (parallel zu $\underline{I}_2'$)
+\item $j\omega_1 L_{2\sigma}'\underline{I}_2'$ (eilt $\underline{I}_2'$ um $\ang{90}$ voraus)
+\item $R_{2,\text{ges}}'\cdot\frac{1-s}{s}\cdot\underline{I}_2' = -\underline{U}_{1i} - R_{2,\text{ges}}'\,\underline{I}_2' - j\omega_1 L_{2\sigma}'\underline{I}_2'$
+}
+\begin{center}
+\input{drawings/asynchronmaschine/zeiger_asyn}
+\end{center}
+}
+\sectionbox{
+\subsection{Stromortskurve}
+\symbolbox{bei $R_1 = 0\qquad\qquad\qquad\tan(\mu) = s_K$}
+\cookbox{Stromortskurve $R_1 = 0\wedge R_\text{Fe} = 0$}{
+\item $\underline{U}_1$ auf reelle Achse legen $\Rightarrow\varphi_{1U} = 0$
+\item $R_1 = 0\Rightarrow \underline I_{10}$ und $\underline I_{1Ki}$ haben keinen Realteil
+\item Kreismittelpunkt auf Im-Achse zwischen $\underline{I}_{1Ki}$ und $\underline{I}_{10}$
+\item $\mu$ zwischen $P_0$ und $P_A$
+}
+\input{drawings/asynchronmaschine/zeiger_asyn_stromortskurve_i}
+}
+\sectionbox{
+\subsubsection{Schlupfgerade}
+\cookbox{Schlupfgerade $R_1 = 0\wedge R_\text{Fe}\neq 0$}{
+\item Schlupfgerade an beliebiger Stelle einzeichnen
+\item gesuchtes $s$ aus Längenverhältnis zu bekanntem Schlupf bestimmen
+}
+\input{drawings/asynchronmaschine/zeiger_asyn_stromortskurve_s}
+}
+\sectionbox{
+\subsubsection{Maßstab}
+\symbolbox{
+\begin{tabular}{p{2.8cm}cc}
+Strommaßstab & $m_I$ & $\unitof{\si{\ampere\per\centi\meter}}$\\
+Leistungsmaßstab & $m_P = 3\cdot U_1\cdot m_I$ & $\unitof{\si{\watt\per\centi\meter}}$\\
+Drehmomentmaßstab & $m_M = \frac{m_P}{2\pi\cdot n_\text{syn}}$ & $\unitof{\si{\newtonmeter\per\centi\meter}}$
+\end{tabular}
+}
+
+\subsubsection{Ablesbare Werte}
+\begin{tabular}{p{4cm}l}
+Aufgenommene elektrische Leistung & $P_1 = \overline{PB}\cdot m_P$\\
+Kupferverluste Rotor & $P_{\text{Cu}2} = \overline{AB}\cdot m_P$\\
+Abgegebene mechanische Leistung & $P_m = \overline{PA}\cdot m_P$\\
+Inneres Drehmoment & $M_i = \overline{PB}\cdot m_M$
+\end{tabular}
+\symbolbox{Definition Punkt B: Orthogonale Projektion von $P$ auf Im-Achse}
+
+\input{drawings/asynchronmaschine/zeiger_asyn_stromortskurve_p}
+}
+\sectionbox{
+\subsection{Drehmoment}
+\emphbox{$M_K\sim \left(\frac{U_1}{f_1}\right)^2\qquad M_N\sim\Phi_\delta\frac{U_1}{f_1}$}
+\begin{align*}
+M_i = M_R + M_L + J\frac{\partial\omega}{\partial t}
+\end{align*}
+\subsubsection{Drehmomentgleichung}
+\emphbox{\[M_i = 3p(1-\sigma)\frac{{U_1}^2}{{\omega_1}^2 L_\sigma}\frac{s \cdot s_K}{\Delta\rho_1{s_K}^2 + 2s_K\frac{\rho_1}{\sigma}(1-\sigma)+\Delta\rho_1 s^2}\]
+}
+Kippmoment:\\
+$M_K = M_i(s_K) = \frac{3}{2} p\cdot (1-\sigma)\frac{{U_1}^2}{{\omega_1}^2 L_\sigma}\left( \frac{1}{\Delta\rho_1+\frac{\rho_1}{\sigma}(1-\sigma)}\right)$\\
+$(R_1 = 0): M_K = \frac{m_1U_1\frac{I_{1Ki} - I_{10}}{2}}{2\pi\cdot n_s}$\\
+Kippschlupf: $s_K = \frac{\rho_2}{\sigma}\sqrt{\frac{1+{\rho_1}^2}{1+\left(\frac{\rho_1}{\sigma}\right)^2}}$
+
+\symbolbox{
+\begin{tabularx}{\columnwidth}{>{\centering\arraybackslash}X>{\centering\arraybackslash}X}
+$s_K > 0\quad$ Motor & $s_K < 0\quad$ Generator
+\end{tabularx}
+}
+}
+\sectionbox{
+\subsubsection{Klossche Gleichung (Annahme $R_1 = 0$)}
+\emphbox{\[\frac{M_i}{M_K} = \frac{2\cdot s_K\cdot s}{{s_K}^2 + s^2}\]}
+\[s_{1,2} = s_K \frac{M_K}{M_i} \pm \sqrt{\left(s_K \frac{M_K}{M_i}\right)^2 - {s_K}^2}\]
+Nur echte Lösung wenn gilt: \quad $s < s_K$
+}
+\sectionbox{
+\subsection{Symmetrische Komponenten}
+\symbolbox{
+\begin{tabularx}{\columnwidth}{>{\centering\arraybackslash}Xc>{\centering\arraybackslash}X}
+$s_m + s_g = 2$ & $s_m = s = \frac{n_s - n}{n_s}$ & $s_g = \frac{n_s + n}{n_s}$
+\end{tabularx}
+}
+\subsubsection{Spannungen Mit- und Gegensystem}
+\begin{tabular}{lc}
+Mitsystem & $\underline{U}_m = \frac{1}{3}\cdot (\underline{U}_u + \underline{a}\cdot\underline{U}_v + \underline{a}^2 \cdot \underline{U}_w)$\\
+Gegensystem & $\underline{U}_m = \frac{1}{3}\cdot (\underline{U}_u + \underline{a}^2\cdot\underline{U}_v + \underline{a} \cdot \underline{U}_w)$\\
+Nullsystem & $\underline{U}_m = \frac{1}{3}\cdot (\underline{U}_u + \cdot\underline{U}_v + \cdot \underline{U}_w)$
+\end{tabular}\\
+Nullsystem verschwindet bei Dreiecksschaltung oder Sternschaltung ohne herausgeführten Sternpunkt\\
+
+\subsubsection{Drehmoment mit Kompensation (Kippschlupf ändert sich)}
+\[M_\text{ges} = M_m - M_g\]
+\emphbox{
+\[M = 3p\cdot (1-\sigma)\cdot\frac{{U_1}^2}{{\omega}^2 L_1} \cdot\frac{\rho_2 \cdot s}{(\rho_1\cdot\rho_2 -\sigma\cdot s)^2 +(\rho_2 +s\cdot\rho_1)^2}\]
+}
+}

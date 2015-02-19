@@ -1,0 +1,60 @@
+%!tikz editor 1.0
+%!tikz source begin
+\begin{tikzpicture} [scale=.6, >=angle 45, font=\small]
+
+% Koordinatensystem
+\draw [->, thick] (4, 0) -- (-4, 0) node [left] {Im};
+\draw [->, thick] (0, -4) -- (0, 4) node [above] {Re};
+
+% Zeiger
+\draw [->, very thick, blue] (0, 0) -- (0, 2);
+\draw [->, very thick, blue] (0, 0) -- (125:3.25);
+\draw [->, very thick, blue] (125:3.25) -- (0, 2);
+
+\draw (1.75, 0.75) circle (3.5);
+
+\draw [->, very thick, red] (0, 0) -- (1.75, 0.75);
+\draw [<-, very thick, red] (1.75, 0.75) -- ++(235:3.5);
+\draw [<-, very thick, red] (1.75, 0.75) ++(235:3.5) -- (0, 0); 
+
+\draw [->, >=stealth] (0, 1.65) arc (90:125:1.65);
+\draw [->, >=stealth] (262:1.2) arc (262:90:1.2);
+\draw [->, >=stealth] (1.75, 0.75) ++(235:1.25) arc (235:205:1.25);
+
+\draw [dashed, thick, green!70!blue] (1.75, 0.75) ++(235:3.5) +(-3.8,0) node [left] {$P$} -- +(4.4, 0) ;
+
+\draw [dashed, thick, red!50!yellow] (1.75, 3.8) -- (1.75, -2.7); 
+
+% Beschriftungspfeile
+\draw [<->, >=latex, thick] (2,0) -- (2, -2.1);
+\draw [<->, >=latex, thick] (-2.75, 1) -- (-2.75, -1);
+\draw [<->, >=latex, thick] (-1, -3.2) -- (1, -3.2);
+
+% Beschriftung
+\draw (1.6, 0.75) node [above] {\textbf M};
+\draw (-1, -3.2) node [left, font=\large] {\begin{tabular}{c} übererregt \\ $I_{K\textrm{III}} > I_{K0}$ \end{tabular}};
+\draw (1, -3.2) node [right, font=\large] {\begin{tabular}{c} untererregt\\ $I_{K\textrm{III}} < I_{K0}$ \end{tabular}};
+\draw (-2.75, 1) node [above, font=\large] {Motor};
+\draw (-2.75, -1) node [below, font=\large] {Generator};
+\draw (2.1, -1) node [right, fill=gray!3] {$\text{Re}(\underline I_1) = |\underline I_1| \cdot \cos(\varphi)$};
+
+\draw (0, 1.8) node [right] {$\underline U_1$};
+\draw (-0.6, 2.2) node [above] {$\underline U_{Z1}$};
+\draw (125:3.25) node [left] {$\underline U_\text{iP}$};
+
+\draw (0.8, 0.8) node {$\underline I_{K0}$};
+\draw (1.2, -1) node {$\underline I_{K\textrm{III}}$};
+\draw (-0.4, -1.5) node {$\underline I_1$};
+
+\draw (108:1.9) node {$\vartheta$};
+\draw (145:1.4) node {$\varphi$};
+\draw (0.5, -0.25) node {$-\vartheta$};
+
+\draw (0.1, 2.5) node [right, blue, fill=gray!3] {\textbf{Spannungsdreieck}};
+\draw (2, 0.5) node [right, red] {\textbf{Stromdreieck}};
+\draw (1.7, 3.9) node {$P_W$ konstant};
+\draw (1.75, 3.3) node [left, red!50!yellow] {stabil};
+\draw (1.75, 3.3) node [right, red!50!yellow] {instabil}; 
+
+\end{tikzpicture}
+%!tikz source end

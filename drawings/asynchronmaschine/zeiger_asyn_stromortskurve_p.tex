@@ -1,0 +1,46 @@
+%!tikz editor 1.0
+%!tikz source begin
+\begin{tikzpicture}[>=angle 60, font=\small]
+
+% Koordinatensystem
+\draw [->, thick] (-.4, 0) -- (6, 0) node [above] {$-$Im};
+\draw [->, thick] (0, -2) -- (0, 2.5) node [right] {Re};
+
+% Kreis
+\coordinate (M) at (3, 0);
+\draw [thick] (M) circle (2);
+
+% Vektoren
+\coordinate (U1) at (0, 1.75);
+\coordinate (Pinf) at ($(M)+(2,0)$);
+\coordinate (P0) at ($(M)+(-2,0)$);
+\coordinate (Pa) at ($(M)+(30:2)$);
+\coordinate (Pn) at ($(M)+(130:2)$);
+\coordinate (B) at ($(P0)!(Pn)!(Pinf)$);
+
+\draw [->, very thick, blue] (0, 0) -- (U1);
+\draw [name path= Bline, very thick, green!70!blue] (P0) -- (Pinf) node [black, pos=0.8, below, sloped] {Drehmomentlinie};
+\draw [name path= Aline, very thick, green!70!blue] (P0) -- (Pa) node [black, pos=0.8, above, sloped] {Leistungslinie};
+\draw [name path= dashedline, densely dashed] (Pn) -- (B);
+
+\path [name intersections={of=Aline and dashedline, by=A}];
+
+% Beschriftung
+\node at (M) [above] {$M$};
+\node at (M) {$\times$};
+\node at (Pinf) {$\bullet$};
+\node at (P0) {$\bullet$};
+\node at (Pa) {$\bullet$};
+\node at (Pn) {$\bullet$};
+\node at (A) {$\bullet$};
+\node at (B) {$\bullet$};
+\node at (U1) [left] {$\underline U_1$};
+\node at (Pn) [left] {$P_N$};
+\node at (Pa) [right] {$P_A$};
+\draw (Pinf) +(0, -0.25) node [right] {$P_\infty$};
+\draw (P0) +(0, -0.25) node [left] {$P_0$};
+\draw (A) +(0, 0.15) node [left] {A};
+\draw (B) +(0, -0.15) node [left] {B};
+			
+\end{tikzpicture}
+%!tikz source end
