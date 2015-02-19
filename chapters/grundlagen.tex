@@ -15,9 +15,6 @@ mag. Feldstärke & $\vec{H}$ & $\unitof{\si{\ampere\per\metre}}$\\
 magnetische Spannung & $V_m$ & $\unitof{\si{\ampere}}$\\
 magnetischer Widerstand & $R_m$ & $\unitof{\si{\ampere\per\voltsecond}}$\\
 Streuziffer & $\sigma$ & $\unitof{\si{1}}$\\
-Remanenzflussdichte & $B_r$ & $\unitof{\si{\tesla}}$\\
-kritische Feldstärke (aus Kennlinie ablesen) & $H_\text{M,krit}$ & $\unitof{\si{\ampere\per\meter}}$\\
-Steigung Scherungsgerade & $k_\text{SG}$ & $\unitof{\si{1}}$\\
 \cmrule
 \multicolumn{3}{c}{\textbf{elektrische Größen}}\\
 \cmrule
@@ -36,7 +33,7 @@ effektive Windungszahl & $w_\text{eff}$ & $\unitof{\si{1}}$\\
 Luftspalthöhe & $\delta$ & $\unitof{\si{\milli\meter}}$\\
 scheinbarer Luftspalt & $\delta'$ & $\unitof{\si{\milli\meter}}$\\
 effektiver Luftspalt & $\delta''$ & $\unitof{\si{\milli\meter}}$\\
-Anzahl der Leiter pro Nut & $Z_\text{N}$ & $\unitof{\si{1}}$\\
+Anzahl der Leiter pro Nut & $Z_N$ & $\unitof{\si{1}}$\\
 Zahl der Einzelspulen (Kommutatorsegmente) & $Z_K$ & $\unitof{\si{1}}$\\
 ideelle Eisenlänge & $l_i$ & $\unitof{\si{\meter}}$\\
 bewickelbare Nutfläche & $A_N$ & $\unitof{\si{\meter\squared}}$\\
@@ -48,7 +45,7 @@ Anzahl paralleler Zweige & $a$ & $\unitof{\si{1}}$\\
 \cmrule
 \multicolumn{3}{c}{\textbf{Näherungsfaktoren}}\\
 \cmrule
-Carterfaktor & $k_\text{C}$ & $\unitof{\si{1}}$\\
+Carterfaktor & $k_C$ & $\unitof{\si{1}}$\\
 Eisenfüllfaktor & $k_\text{Fe}$ & $\unitof{\si{1}}$\\
 Eisenfaktor (Magnnetisierungsbedarf Eisen) & $k_\mu$ & $\unitof{\si{1}}$\\
 Nutfüllfaktor & $k_Q$ & $\unitof{\si{1}}$\\
@@ -103,19 +100,19 @@ Permittivität & $\varepsilon_0 = \SI{8,854e-12}{\ampere\second\per\volt\metre}$
 		\multicolumn{3}{c}{\textbf{Maße}}\\
 		\cmrule
 		Nutzahl & $N$ & $\unitof{\si{1}}$\\
-		Nutteilung & $\tau_\text{N}$ & $\unitof{\si{\centi\metre}}$\\
+		Nutteilung & $\tau_N$ & $\unitof{\si{\centi\metre}}$\\
 		\cmrule
 		Polpaarzahl & $p$ & $\unitof{\si{1}}$ \\
-		Polteilung & $\tau_\text{p}$ & $\unitof{\si{\centi\metre}}$\\
+		Polteilung & $\tau_p$ & $\unitof{\si{\centi\metre}}$\\
 		\cmrule
-		Nuthöhe & $h_\text{N}$ & $\unitof{\si{\centi\metre}}$\\
-		Nutbreite & $b_\text{N}$ & $\unitof{\si{\centi\metre}}$\\
-		Jochhöhe & $h_\text{J}$ & $\unitof{\si{\centi\metre}}$\\
+		Nuthöhe & $h_N$ & $\unitof{\si{\centi\metre}}$\\
+		Nutbreite & $b_N$ & $\unitof{\si{\centi\metre}}$\\
+		Jochhöhe & $h_J$ & $\unitof{\si{\centi\metre}}$\\
 		\cbrule
 	\end{tabularx}
 	\begin{tabularx}{\columnwidth}{c c}
 		\ctrule
-		$\tau_\text{N} = \frac{\pi\cdot D}{N}$ & $\tau_\text{p} = \frac{\pi\cdot D}{2p}$\\
+		$\tau_N = \frac{\pi\cdot D}{N}$ & $\tau_p = \frac{\pi\cdot D}{2p}$\\
 		\cbrule
 	\end{tabularx}
 	}
@@ -137,7 +134,7 @@ $\rot \vec{H} = \vec{s} \quad (< 10\si{\kilo\hertz})$ & \\
 \begin{tabularx}{\columnwidth}{>{\centering\arraybackslash}m{0.435\columnwidth}|>{\centering\arraybackslash}m{0.435\columnwidth}}
 \textbf{Durchflutungsgesetz} & \textbf{Induktionsgesetz}\\
 \hline
-\vspace{3pt}$\oint_{L_\text{A}}\vec{H}\diff\vec{l} = \iint_{A_\text{L}}\vec{s}\diff\vec{A} = \Sigma i = \Theta$ & \vspace{3pt}\mbox{$u_i = \frac{\partial\Psi(t)}{\partial t} = \frac{\partial}{\partial t}\left(\iint_A \vec{B}\diff\vec{A}\right)$}
+\vspace{3pt}$\oint_{L_A}\vec{H}\diff\vec{l} = \iint_{A_L}\vec{s}\diff\vec{A} = \Sigma i = \Theta$ & \vspace{3pt}\mbox{$u_i = \frac{\partial\Psi(t)}{\partial t} = \frac{\partial}{\partial t}\left(\iint_A \vec{B}\diff\vec{A}\right)$}
 $\oint_L \vec{E}\diff\vec{l} + u_\text{i} = 0$\\
 \end{tabularx}
 
@@ -172,10 +169,10 @@ $A = k_\text{Fe}\cdot A_\text{geometrisch}$
 \subsection{Entstehung des Drehmoments}
 \subsubsection{Lorenzkraft}
 
-\[\vec{F_\text{L}} = I\cdot (\vec{l}\times \vec{B})\]
+\[\vec{F_L} = I\cdot (\vec{l}\times \vec{B})\]
 
 \subsubsection{Drehmoment}
-\emphbox{$M_\text{D} = F\cdot r = M_L + M_R + J\frac{\diff\omega}{\diff t}$}
+\emphbox{$M_D = F\cdot r = M_L + M_R + J\frac{\diff\omega}{\diff t}$}
 \[m_d(t) = \left(\frac{D}{2}\right)^2\cdot\int_{-\frac{l_i}{2}}^{\frac{l_i}{2}}\int_{0}^{2\pi}a(\vartheta,z,t)B_\delta(\vartheta,z,t)\diff\vartheta\diff z\]
 
 \subsubsection{Strombelag}
@@ -184,7 +181,7 @@ a = \int\vec{s}\diff\vec{l} = \frac{\partial\sum i}{\partial l} = \frac{\partial
 \end{align*}
 \begin{tabularx}{\columnwidth}{>{\centering\arraybackslash}X >{\centering\arraybackslash}X}
 mittlerer Strombelag & Amplitude\\
-$a_m = \frac{b_\text{N}}{\tau_\text{N}}\cdot A_\text{N} = \frac{\sum\Theta_\text{N}}{\tau_p}$ & $A_\text{N} = \frac{Z_\text{N}\cdot i}{b_\text{N}} = \frac{\Theta_\text{N}}{b_\text{N}}$
+$a_m = \frac{b_N}{\tau_N}\cdot A_\text{N} = \frac{\sum\Theta_N}{\tau_p}$ & $A_\text{N} = \frac{Z_N\cdot i}{b_N} = \frac{\Theta_N}{b_N}$
 \end{tabularx}
 
 \subsubsection{Felderregerkurve}
@@ -192,13 +189,12 @@ $a_m = \frac{b_\text{N}}{\tau_\text{N}}\cdot A_\text{N} = \frac{\sum\Theta_\text
 }
 \sectionbox{
 \subsection{Effektiver Luftspalt}
-Magnetfeld wegen Nuten inhomogen. Ausgleich durch Carterfaktor $k_\text{C}$ (ungenutet $k_\text{C,i} = 1$):\\
+Magnetfeld wegen Nuten inhomogen. Ausgleich durch Carterfaktor $k_C$ (ungenutet $k_{C_i} = 1$):\\
 \begin{tabular}{lll}
-$\delta' = k_\text{C}\cdot\delta$ & $k_\text{C} = \underset{\text{Stator}}{k_\text{C1}}\cdot \underset{\text{Rotor}}{k_\text{C2}}$ & $k_\text{C,i} = \frac{\tau_\text{N,i}}{\tau_\text{N,i} -\gamma_i \cdot\delta}$\\\\
+$\delta' = k_C\cdot\delta$ & $k_C = \underset{\text{Stator}}{k_{C1}}\cdot \underset{\text{Rotor}}{k_{C2}}$ & $k_{C_i} = \frac{\tau_{N_i}}{\tau_{N_i} -\gamma_i \cdot\delta}$\\\\
 $\delta'' = k_\mu\cdot k_\text{Abfl}\cdot\delta'$ &
-$\gamma_i = \frac{\left(\frac{b_\text{N,i}}{\delta}\right)^2}{5+\left(\frac{b_\text{N,i}}{\delta}\right)}$ &
-$\tau_\text{N,i} = \frac{\pi\cdot D}{N_i}$\\
-$k_\mu = 1 + \frac{V_{m\text{Fe}}}{2\cdot V_{m\delta'}}$ & &
+$\gamma_i = \frac{\left(\frac{b_{N_i}}{\delta}\right)^2}{5+\left(\frac{b_{N_i}}{\delta}\right)}$ &
+$k_\mu = 1 + \frac{V_{m\text{Fe}}}{2\cdot V_{m\delta'}}$
 \end{tabular}
 }
 \sectionbox{
@@ -216,7 +212,7 @@ $\Phi_\text{E} = \Phi_\text{Eh} + \Phi_{\text{E}\sigma} = (1+\sigma_\text{E})\cd
 \\
 \subsubsection{Nut- und Zahnkopfstreuung}
 \begin{minipage}{0.7\columnwidth}
-$\Phi_N$: Gesamtfluss der in Nuten gebetteten Spulen\\
+$\Phi_\text{N}$: Gesamtfluss der in Nuten gebetteten Spulen\\
 $\Phi_\text{Nh}$: Hauptfluss\\
 $\Phi_{\text{N}\sigma}$: Streufluss (Nut- \& Zahnkopfstreuung)
 \end{minipage}
@@ -238,14 +234,14 @@ gesamte Streuziffer: $\sigma_\text{ges}=\frac{\Phi_{\sigma, \text{ges}}}{\Phi_\t
 $\Phi_\text{S} = \Phi_\text{Sh} + \Phi_{\sigma,\text{ges}} = (1+\sigma_\text{ges})\cdot \Phi_\text{Sh}$
 \\
 \subsubsection{Induktivitäten}
-Hauptinduktivität: $L_\text{h}=\frac{\Psi_\text{h}}{i}$\\
-Gesamte Streuinduktivität: $L_{\sigma}=\frac{\Psi_{\sigma}}{i}=\sigma \cdot L_\text{h}$ \\
-Totale Induktivität: $L_\text{ges}= \frac{\Psi_\text{ges}}{i}=(1+\sigma) \cdot L_\text{h}$
+Hauptinduktivität: $L_h=\frac{\Psi_h}{i}$\\
+Gesamte Streuinduktivität: $L_{\sigma}=\frac{\Psi_\sigma}{i}=\sigma \cdot L_h$ \\
+Totale Induktivität: $L_\text{ges}= \frac{\Psi_\text{ges}}{i}=(1+\sigma) \cdot L_h$
 }
 \sectionbox{
 \subsection{Spulen}
 \begin{tabularx}{\columnwidth}{lX}
-Spulenwindungszahl & $w_\text{Sp} = \frac{Z_\text{N}}{2 \cdot u}$\\
+Spulenwindungszahl & $w_\text{Sp} = \frac{Z_N}{2 \cdot u}$\\
 Nebeneinanderliegende Spulenseiten pro Nut & $u = \frac{Z_K}{N}$\\
 Wellenwicklung & $a = 2$\\
 Schleifenwicklung & $a = 2\cdot p$
