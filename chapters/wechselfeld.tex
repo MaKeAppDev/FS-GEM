@@ -47,7 +47,6 @@ $I_1 = I_N$ & $I_1 = \frac{I_N}{\sqrt{3}}$\\
 }
 \sectionbox{
 \subsection{Einfluss realer Luftspalt}
-\label{subsec:wickl}
 \symbolbox{Wicklungsfaktor: $\qquad\xi_{(\nu)} = \xi_{Z(\nu)}\cdot\xi_{S(\nu)}\cdot\xi_{N(\nu)}$}
 \[w_\text{eff} = w_\text{Sp}\cdot\xi_{(\nu)}\]
 \begin{tabularx}{\columnwidth}{cCc}
@@ -56,7 +55,7 @@ $\alpha_N = \frac{2\pi}{N}$ & $\alpha_\text{Sp} = W_\text{Sp}(\text{absolut})\cd
 
 \subsubsection{Zonung}
 Erhöhung der Lochzahl $q$\\
-(Beschränkt durch $N_\text{max} = \frac{D\pi}{\tau_\text{N,min}}$) mit $\tau_\text{N,min} \approx \SI{1}{\centi\meter}$
+(Beschränkt durch $N_\text{max} = \frac{D\pi}{\tau_{N,\text{min}}}$) mit $\tau_{N,\text{min}} \approx \SI{1}{\centi\meter}$
 \begin{align*}
 w_\text{eff} &= q\cdot w_\text{Sp}\cdot\xi_{Z(\nu)}\\
 \xi_{Z(\nu)} &= \frac{\sin\left(q\cdot\nu\frac{\alpha_N}{2}p\right)}{q\cdot\sin\left(\nu\frac{\alpha_N}{2}p\right)} = \frac{\sin\left(\nu\frac{\pi}{2}\frac{q}{Q}\right)}{q\cdot\sin\left(\nu\frac{\pi}{2}\frac{1}{Q}\right)}
@@ -72,6 +71,6 @@ w_\text{eff} &= q\cdot w_\text{Sp}\cdot\xi_{S(\nu)}\\
 \subsubsection{Nutschlitzbreite}
 \begin{align*}
 w_\text{eff} &= w_\text{Sp}\cdot\xi_{N(\nu)}\\
-\xi_{N(\nu)} &= \frac{\sin\left(\nu\frac{b_\text{N}}{D}\right)}{\nu\frac{b_\text{N}}{D}}
+\xi_{N(\nu)} &= \frac{\sin\left(\nu\frac{b_N}{D}\right)}{\nu\frac{b_N}{D}}
 \end{align*}
 }
