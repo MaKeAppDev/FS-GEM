@@ -1,9 +1,7 @@
 \section{Gleichstrommaschine}
-\sectionbox{
+\begin{sectionbox}
 \subsection{Größen}
-\tablebox{
-\begin{tabular*}{\columnwidth}{p{4,5cm}cc}
-\ctrule
+\begin{tablebox}{p{4,5cm}cc}
 Maschinenkonstante (Spannung) & $k_U$ & $\unitof{\si{1}}$\\
 Maschinenkonstante (Drehmoment) & $k_M$ & $\unitof{\si{1}}$\\
 Flusskonstante & $k_\Phi$ & $\unitof{\si{\voltsecond\per\ampere}}$\\
@@ -11,9 +9,8 @@ Erregerstromkonstante & $k_E$ & $\unitof{\si{1}}$\\
 Ankerwindungszahl & $w_2$ & $\unitof{\si{1}}$\\
 Bürstenübergangsspannung & $U_B$ & $\unitof{\si{\volt}}$\\
 Kommutatorsegmentspannung & $U_S$ & $\unitof{\si{\volt}}$\\
-\cbrule
-\end{tabular*}
-}
+\end{tablebox}
+
 \subsection{Systemgleichungen}
 \begin{align*}
 U_A &= R_{A,\text{res}}\cdot I_A + U_i + 2\cdot U_B & w_2 = \frac{N_2 \cdot Z_N}{2a}\\
@@ -22,13 +19,14 @@ U_i &= k_U\cdot\Phi_E\cdot n & k_M = \frac{k_U}{2\pi}\\
 M_i &= k_M\cdot\Phi_E\cdot I_A\\
 M_i &= M_R + M_L + J\frac{\diff\omega}{\diff t}
 \end{align*}
+\end{sectionbox}
 
+\begin{sectionbox}
 \subsection{Verhalten}
 \begin{center}
 \input{drawings/gleichstrommaschine/flussverlauf_phi}
 \end{center}
-}
-\sectionbox{
+
 \subsection{Gleichstrom-Nebenschlussmaschine}
 \subsubsection{ESB}
 \begin{center}
@@ -36,9 +34,9 @@ M_i &= M_R + M_L + J\frac{\diff\omega}{\diff t}
 \end{center}
 
 \subsubsection{Drehmoment-Drehzahl-Kennlinie}
-\emphbox{
+\begin{emphbox}
 \[n = \frac{U_A - 2\cdot U_B}{k_U\cdot\Phi_E} - \frac{2\pi\cdot R_{A,\text{res}}}{(k_U\cdot\Phi_E)^2}\cdot M_i\]
-}
+\end{emphbox}
 
 \subsubsection{Wichtige Betriebspunkte}
 \begin{align*}
@@ -47,8 +45,9 @@ M_i &= M_R + M_L + J\frac{\diff\omega}{\diff t}
 &\text{Anlaufstrom: } (n = 0) & I_{A,\text{An}}& = \frac{U_A - 2\cdot U_B}{R_{A,\text{res}}}\\
 &n = n_0\cdot\left(1 - \frac{M_i}{M_{i,\text{An}}}\right) & M_i &= M_{i,\text{An}}\cdot\left(1 - \frac{n}{n_0}\right)
 \end{align*}
-}
-\sectionbox{
+\end{sectionbox}
+
+\begin{sectionbox}
 \subsection{Gleichstrom-Reihenschlussmaschine}
 \subsubsection{ESB}
 \begin{center}
@@ -57,7 +56,9 @@ M_i &= M_R + M_L + J\frac{\diff\omega}{\diff t}
 \begin{align*}
 R_{A,\text{res}} &= R_V + R_A + R_E || R_P
 \end{align*}
+\end{sectionbox}
 
+\begin{sectionbox}
 \subsubsection{Systemgleichungen}
 \begin{align*}
 I_E &= k_E\cdot I_A \quad\text{mit } k_E =
@@ -70,13 +71,12 @@ I_E &= k_E\cdot I_A \quad\text{mit } k_E =
 M_i & = k_M \cdot \Phi_E \cdot I_A = k_M \, k_\Phi \, k_E \cdot {I_A}^2\\
 U_i & = k_U \cdot \Phi_E \cdot n = k_U \, k_\Phi \, k_E \cdot I_A \cdot n\\
 \end{align*}
-}
-\sectionbox{
+
 \subsubsection{Drehmoment-Drehzahl-Kennlinie}
-\emphbox{
+\begin{emphbox}
 \[M_i = k_M\, k_\Phi\, k_E\cdot\frac{(U_A - 2\cdot U_B)^2}{(k_U\, k_\Phi\, k_E\cdot n + R_{A,\text{res}})^2} \]
-}
+\end{emphbox}
 \begin{align*}
 \text{Anlaufmoment: }(n=0)\qquad M_{i,\text{An}} = k_M\, k_\Phi\, k_E\cdot\left(\frac{U_A}{R_{A,\text{res}}}\right)^2
 \end{align*}
-}
+\end{sectionbox}

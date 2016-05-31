@@ -1,9 +1,7 @@
 \section{Wechselfeld - Drehfeld}
-\sectionbox{
+\begin{sectionbox}
 \subsection{Größen}
-\tablebox{
-\begin{tabular*}{\columnwidth}{p{4,5cm}cc}
-\ctrule
+\begin{tablebox}{p{4,5cm}cc}
 Stator & Index 1 & \\
 Rotor & Index 2 & \\
 Ordnungszahl der Oberwellen & $\nu$ & $\unitof{\si{1}}$\\
@@ -31,23 +29,25 @@ Zonungsfaktor & $\xi_Z$ & $\unitof{\si{1}}$\\
 Sehnungsfaktor & $\xi_S$ & $\unitof{\si{1}}$\\
 Nutschlitzbreitenfaktor & $\xi_N$ & $\unitof{\si{1}}$\\
 Schrägungsfaktor & $\xi_\text{Schr}$ & $\unitof{\si{1}}$\\
-\cbrule
-\end{tabular*}
-}
-}
-\sectionbox{
+\end{tablebox}
+\end{sectionbox}
+
+\begin{sectionbox}
 \subsection{Stern \& Dreieckschaltung}
-\emphbox{
-\begin{tabularx}{\columnwidth}{>{\centering\arraybackslash}X |>{\centering\arraybackslash}X}
+\begin{emphbox}
+\begin{tabularx}{\columnwidth}{C |C}
 \textbf{Sternschaltung} & \textbf{Dreiecksschaltung}\\
 $U_1 = \frac{U_N}{\sqrt{3}}$ & $U_1 = U_N$\\
 $I_1 = I_N$ & $I_1 = \frac{I_N}{\sqrt{3}}$\\
 \end{tabularx}
-}
-}
-\sectionbox{
+\end{emphbox}
+\end{sectionbox}
+
+\begin{sectionbox}
 \subsection{Einfluss realer Luftspalt}
-\symbolbox{Wicklungsfaktor: $\qquad\xi_{(\nu)} = \xi_{Z(\nu)}\cdot\xi_{S(\nu)}\cdot\xi_{N(\nu)}$}
+\begin{symbolbox}
+  Wicklungsfaktor: $\qquad\xi_{(\nu)} = \xi_{Z(\nu)}\cdot\xi_{S(\nu)}\cdot\xi_{N(\nu)}$
+\end{symbolbox}
 \[w_\text{eff} = w_\text{Sp}\cdot\xi_{(\nu)}\]
 \begin{tabularx}{\columnwidth}{cCc}
 $\alpha_N = \frac{2\pi}{N}$ & $\alpha_\text{Sp} = W_\text{Sp}(\text{absolut})\cdot\alpha_N$ & $\alpha_p = \frac{2\pi}{2p}$
@@ -73,4 +73,4 @@ w_\text{eff} &= q\cdot w_\text{Sp}\cdot\xi_{S(\nu)}\\
 w_\text{eff} &= w_\text{Sp}\cdot\xi_{N(\nu)}\\
 \xi_{N(\nu)} &= \frac{\sin\left(\nu\frac{b_N}{D}\right)}{\nu\frac{b_N}{D}}
 \end{align*}
-}
+\end{sectionbox}

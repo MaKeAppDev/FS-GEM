@@ -1,10 +1,7 @@
 \section{Grundlagen}
-\sectionbox
-{
+\begin{sectionbox}
 \subsection{Größen}
-\tablebox{
-\begin{tabular*}{\columnwidth}{p{4.2cm}cc}
-\ctrule
+\begin{tablebox}{p{4.2cm}cc}
 \multicolumn{3}{c}{\textbf{magnetische Größen}}\\
 \cmrule
 Durchflutung (magnetische Spannungsquelle) & $\Theta$ & $\unitof{\si{\ampere}}$\\
@@ -49,27 +46,23 @@ Carterfaktor & $k_C$ & $\unitof{\si{1}}$\\
 Eisenfüllfaktor & $k_\text{Fe}$ & $\unitof{\si{1}}$\\
 Eisenfaktor (Magnnetisierungsbedarf Eisen) & $k_\mu$ & $\unitof{\si{1}}$\\
 Nutfüllfaktor & $k_Q$ & $\unitof{\si{1}}$\\
-\cbrule
-\end{tabular*}
-}
-}
-\sectionbox{
-\symbolbox{
+\end{tablebox}
+
+\begin{symbolbox}
 \begin{tabularx}{\columnwidth}{lX}
 Permeabilität & $\mu_0 = \SI{4\pi e-7}{\volt\second\per\ampere\metre}$ \\
 Permittivität & $\varepsilon_0 = \SI{8,854e-12}{\ampere\second\per\volt\metre}$
 \end{tabularx}
-}
+\end{symbolbox}
+\end{sectionbox}
+
+\begin{sectionbox}
 \subsubsection{Allgemeine Maschinenbegriffe - Durchmesser}
-\mbox{
-\pbox[c]{4cm}{
+\begin{minipage}{.55\columnwidth}
     \input{drawings/grundlagen/maschinen-querschnitt}
-	}
-	}
-\begin{minipage}{3cm}
-	\tablebox{
-	\begin{tabularx}{\columnwidth}{l c}
-		\ctrule
+\end{minipage}
+\begin{minipage}{.45\columnwidth}
+	\begin{tablebox}{lc}
 		\multicolumn{2}{c}{\textbf{Maße}}\\
 		\cmrule
 		Stator Außend. & $D_\text{A1}$\\
@@ -81,21 +74,15 @@ Permittivität & $\varepsilon_0 = \SI{8,854e-12}{\ampere\second\per\volt\metre}$
 		& $D_{\delta\text m}$\\
 		\cmrule
 		Luftspalthöhe & $\delta$\\
-		\cbrule
-	\end{tabularx}
-	}
+	\end{tablebox}
 \end{minipage}
 
 \subsubsection{Allgemeine Maschinenbegriffe - Abmessungen}
-\mbox{
-\pbox[c]{4cm}{
-    \input{drawings/grundlagen/maschinen-querschnitt2}
-	}
-	}
-\begin{minipage}{3cm}
-	\tablebox{
-	\begin{tabularx}{\columnwidth}{l c c}
-		\ctrule
+\begin{minipage}{.55\columnwidth}
+  \input{drawings/grundlagen/maschinen-querschnitt2}
+\end{minipage}
+\begin{minipage}{.45\columnwidth}
+	\begin{tablebox}{l c c}
 		\multicolumn{3}{c}{\textbf{Maße}}\\
 		\cmrule
 		Nutzahl & $N$ & $\unitof{\si{1}}$\\
@@ -107,17 +94,14 @@ Permittivität & $\varepsilon_0 = \SI{8,854e-12}{\ampere\second\per\volt\metre}$
 		Nuthöhe & $h_N$ & $\unitof{\si{\centi\metre}}$\\
 		Nutbreite & $b_N$ & $\unitof{\si{\centi\metre}}$\\
 		Jochhöhe & $h_J$ & $\unitof{\si{\centi\metre}}$\\
-		\cbrule
-	\end{tabularx}
-	\begin{tabularx}{\columnwidth}{c c}
-		\ctrule
+	\end{tablebox}
+	\begin{tablebox}{c c}
 		$\tau_N = \frac{\pi\cdot D}{N}$ & $\tau_p = \frac{\pi\cdot D}{2p}$\\
-		\cbrule
-	\end{tabularx}
-	}
+	\end{tablebox}
 \end{minipage}
-}
-\sectionbox{
+\end{sectionbox}
+
+\begin{sectionbox}
 \subsection{Grundlegende Gleichungen}
 \subsubsection{Maxwell}
 
@@ -163,30 +147,34 @@ $\Psi = \Phi\cdot w = L\cdot i$ & \\
 magnetisch wirksame Fläche & \\
 $A = k_\text{Fe}\cdot A_\text{geometrisch}$
 \end{tabularx}
-}
-\sectionbox{
+\end{sectionbox}
+
+\begin{sectionbox}
 \subsection{Entstehung des Drehmoments}
 \subsubsection{Lorenzkraft}
 
 \[\vec{F_L} = I\cdot (\vec{l}\times \vec{B})\]
 
 \subsubsection{Drehmoment}
-\emphbox{$M_D = F\cdot r = M_L + M_R + J\frac{\diff\omega}{\diff t}$}
+\begin{emphbox}
+  $M_D = F\cdot r = M_L + M_R + J\frac{\diff\omega}{\diff t}$
+\end{emphbox}
 \[m_d(t) = \left(\frac{D}{2}\right)^2\cdot\int_{-\frac{l_i}{2}}^{\frac{l_i}{2}}\int_{0}^{2\pi}a(\vartheta,z,t)B_\delta(\vartheta,z,t)\diff\vartheta\diff z\]
 
 \subsubsection{Strombelag}
 \begin{align*}
 a = \int\vec{s}\diff\vec{l} = \frac{\partial\sum i}{\partial l} = \frac{\partial}{\partial l}\left[\iint_A \vec{s}\diff\vec{A}\right] = -\frac{\partial\Theta}{\partial l}
 \end{align*}
-\begin{tabularx}{\columnwidth}{>{\centering\arraybackslash}X >{\centering\arraybackslash}X}
+\begin{tabularx}{\columnwidth}{CC}
 mittlerer Strombelag & Amplitude\\
 $a_m = \frac{b_N}{\tau_N}\cdot A_\text{N} = \frac{\sum\Theta_N}{\tau_p}$ & $A_\text{N} = \frac{Z_N\cdot i}{b_N} = \frac{\Theta_N}{b_N}$
 \end{tabularx}
 
 \subsubsection{Felderregerkurve}
 \[V(\vartheta) = \Theta(\vartheta) = -\frac{D}{2}\int a_\text{ges}(\vartheta)\diff\vartheta\]
-}
-\sectionbox{
+\end{sectionbox}
+
+\begin{sectionbox}
 \subsection{Effektiver Luftspalt}
 Magnetfeld wegen Nuten inhomogen. Ausgleich durch Carterfaktor $k_C$ (ungenutet $k_{C_i} = 1$):\\
 \begin{tabular}{lll}
@@ -195,8 +183,9 @@ $\delta'' = k_\mu\cdot k_\text{Abfl}\cdot\delta'$ &
 $\gamma_i = \frac{\left(\frac{b_{N_i}}{\delta}\right)^2}{5+\left(\frac{b_{N_i}}{\delta}\right)}$ &
 $k_\mu = 1 + \frac{V_{m\text{Fe}}}{2\cdot V_{m\delta'}}$
 \end{tabular}
-}
-\sectionbox{
+\end{sectionbox}
+
+\begin{sectionbox}
 \subsection{Streuung}
 \subsubsection{Polstreuung}
 \begin{minipage}{0.7\columnwidth}
@@ -236,8 +225,9 @@ $\Phi_\text{S} = \Phi_\text{Sh} + \Phi_{\sigma,\text{ges}} = (1+\sigma_\text{ges
 Hauptinduktivität: $L_h=\frac{\Psi_h}{i}$\\
 Gesamte Streuinduktivität: $L_{\sigma}=\frac{\Psi_\sigma}{i}=\sigma \cdot L_h$ \\
 Totale Induktivität: $L_\text{ges}= \frac{\Psi_\text{ges}}{i}=(1+\sigma) \cdot L_h$
-}
-\sectionbox{
+\end{sectionbox}
+
+\begin{sectionbox}
 \subsection{Spulen}
 \begin{tabularx}{\columnwidth}{lX}
 Spulenwindungszahl & $w_\text{Sp} = \frac{Z_N}{2 \cdot u}$\\
@@ -245,8 +235,9 @@ Nebeneinanderliegende Spulenseiten pro Nut & $u = \frac{Z_K}{N}$\\
 Wellenwicklung & $a = 2$\\
 Schleifenwicklung & $a = 2\cdot p$
 \end{tabularx}
-}
-\sectionbox{
+\end{sectionbox}
+
+\begin{sectionbox}
 \subsection{Verluste}
 \subsubsection{Kupferverluste}
 \begin{center}
@@ -273,14 +264,20 @@ $P_\text{Fe}=m_\text{Fe} \cdot v_{\text{Fe}15} {\cdot} \frac{f}{\SI{50}{\hertz}}
 
 \subsection{Leistung}
 \subsubsection{mechanische Leistung}
-\emphbox{$P_m = 2\pi\cdot n\cdot M_i = \omega_m\cdot M_i$}
+\begin{emphbox}
+  $P_m = 2\pi\cdot n\cdot M_i = \omega_m\cdot M_i$
+\end{emphbox}
 
 \subsubsection{elektrische Leistung}
-\emphbox{$P_\text{el} = U\cdot I$}
+\begin{emphbox}
+  $P_\text{el} = U\cdot I$
+\end{emphbox}
 
 \subsection{Wirkungsgrad}
-\emphbox{$\eta = \frac{P_\text{ab}}{P\text{auf}}$}
-\begin{tabularx}{\columnwidth}{>{\centering\arraybackslash}X >{\centering\arraybackslash}X}
+\begin{emphbox}
+  $\eta = \frac{P_\text{ab}}{P\text{auf}}$
+\end{emphbox}
+\begin{tabularx}{\columnwidth}{CC}
 $\eta_\text{Motor} = \frac{P_m}{P_\text{el}}$ & $\eta_\text{Generator} = \frac{P\text{el}}{P_m}$
 \end{tabularx}
-}
+\end{sectionbox}
