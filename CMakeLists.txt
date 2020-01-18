@@ -4,9 +4,9 @@ project(FS NONE)
 include(UseLATEX)
 
 add_custom_target(
-	writegitid ALL
-	COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/write-gitid.sh
-	WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+    writegitid ALL
+    COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/write-gitid.sh
+    WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
 )
 
 set(CHAPTERS
@@ -18,32 +18,28 @@ set(CHAPTERS
 )
 
 set(DRAWINGS
-	drawings/grundlagen/maschinen-querschnitt.tex
-	drawings/grundlagen/maschinen-querschnitt2.tex
-	drawings/gleichstrommaschine/flussverlauf_phi.tex
-	drawings/gleichstrommaschine/gsnsm_esb.tex
-	drawings/gleichstrommaschine/gsrsm_esb.tex
-	drawings/synchronmaschine/sm_esb.tex
-	drawings/synchronmaschine/zeiger_syn.tex
-	drawings/synchronmaschine/zeiger_syn_dq.tex
-	drawings/synchronmaschine/zeiger_syn_generatorbetrieb.tex
-	drawings/synchronmaschine/zeiger_syn_motorbetrieb.tex
-	drawings/synchronmaschine/zeiger_syn_stromortskurve.tex
-	drawings/asynchronmaschine/asm_esb.tex
-	drawings/asynchronmaschine/zeiger_asyn.tex
-	drawings/asynchronmaschine/zeiger_asyn_stromortskurve_i.tex
-	drawings/asynchronmaschine/zeiger_asyn_stromortskurve_p.tex
-	drawings/asynchronmaschine/zeiger_asyn_stromortskurve_s.tex
-)
-
-set(IMAGES
-	img/Logo.pdf
+    drawings/grundlagen/maschinen-querschnitt.tex
+    drawings/grundlagen/maschinen-querschnitt2.tex
+    drawings/gleichstrommaschine/flussverlauf_phi.tex
+    drawings/gleichstrommaschine/gsnsm_esb.tex
+    drawings/gleichstrommaschine/gsrsm_esb.tex
+    drawings/synchronmaschine/sm_esb.tex
+    drawings/synchronmaschine/zeiger_syn.tex
+    drawings/synchronmaschine/zeiger_syn_dq.tex
+    drawings/synchronmaschine/zeiger_syn_generatorbetrieb.tex
+    drawings/synchronmaschine/zeiger_syn_motorbetrieb.tex
+    drawings/synchronmaschine/zeiger_syn_stromortskurve.tex
+    drawings/asynchronmaschine/asm_esb.tex
+    drawings/asynchronmaschine/zeiger_asyn.tex
+    drawings/asynchronmaschine/zeiger_asyn_stromortskurve_i.tex
+    drawings/asynchronmaschine/zeiger_asyn_stromortskurve_p.tex
+    drawings/asynchronmaschine/zeiger_asyn_stromortskurve_s.tex
 )
 
 add_latex_document(
-	formelsammlung.tex
-	FORCE_PDF
-  INPUTS ${CHAPTERS} ${DRAWINGS}
-	IMAGES ${IMAGES}
-	DEPENDS writegitid
+    formelsammlung.tex
+    FORCE_PDF
+    IMAGE_DIRS img
+    INPUTS ${CHAPTERS} ${DRAWINGS}
+    DEPENDS writegitid
 )
